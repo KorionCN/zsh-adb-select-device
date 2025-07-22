@@ -1,7 +1,7 @@
 # zsh_adb_select_device plugin
 
 # This is a placeholder for the main plugin logic.
-echo "zsh_adb_select_device plugin loaded"
+# echo "zsh_adb_select_device plugin loaded"
 
 
 _zsh_adb_select_device_wrapper() {
