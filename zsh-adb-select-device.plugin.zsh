@@ -64,4 +64,14 @@ _zsh_adb_select_device_wrapper() {
     fi
 }
 
-alias adb='_zsh_adb_select_device_wrapper'
+# Use a function instead of an alias so zsh completion keeps "adb" as the
+# service name (aliases are resolved by the completion system, which would
+# look for completions of the wrapper and bypass the standard _adb).
+# Never prompt for device selection while completing ($compstate is set).
+adb() {
+    if [[ -n $compstate ]]; then
+        command adb "$@"
+        return $?
+    fi
+    _zsh_adb_select_device_wrapper "$@"
+}
