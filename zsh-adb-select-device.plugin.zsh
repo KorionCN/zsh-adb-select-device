@@ -26,7 +26,7 @@ _zsh_adb_select_device_wrapper() {
     if [[ $device_count -gt 1 ]]; then
         # Don't prompt for some commands
         case "$1" in
-            devices|kill-server|start-server)
+            devices|kill-server|start-server|connect|disconnect|pair)
                 command adb "$@"
                 return $?
                 ;;
